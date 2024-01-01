@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhauu3kjcwdts"]
+
+[ext_resource type="Texture2D" uid="uid://crhkljqaatl6x" path="res://data/sprites/gameBG.png" id="1_7de3x"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_74mxj"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74mxj")
+
+[node name="BG" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(8.77612, 4.95522)
+texture = ExtResource("1_7de3x")
+centered = false
+
+[node name="GUI" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CardsCont" type="HBoxContainer" parent="GUI"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 192.0
+alignment = 1

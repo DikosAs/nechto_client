@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://cndytpyl5k16q"]
+
+[ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="1_mds3h"]
+[ext_resource type="Script" path="res://game_select_menu/game_select_menu.gd" id="2_2m4nf"]
+[ext_resource type="Script" path="res://base_scripts/back_button.gd" id="3_41ebc"]
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/bg/1.png" id="3_ayl4h"]
+
+[node name="GameSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mds3h")
+script = ExtResource("2_2m4nf")
+
+[node name="BG" type="Sprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(1.5, 1.26563)
+texture = ExtResource("3_ayl4h")
+centered = false
+
+[node name="GUI" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("1_mds3h")
+
+[node name="1" type="Button" parent="GUI"]
+visible = false
+layout_mode = 0
+offset_left = 256.0
+offset_top = 144.0
+offset_right = 896.0
+offset_bottom = 240.0
+theme = ExtResource("1_mds3h")
+button_mask = 7
+text = "Сервер 1"
+
+[node name="2" type="Button" parent="GUI"]
+visible = false
+layout_mode = 0
+offset_left = 256.0
+offset_top = 272.0
+offset_right = 896.0
+offset_bottom = 368.0
+theme = ExtResource("1_mds3h")
+button_mask = 7
+text = "Сервер 2
+"
+
+[node name="3" type="Button" parent="GUI"]
+visible = false
+layout_mode = 0
+offset_left = 256.0
+offset_top = 400.0
+offset_right = 896.0
+offset_bottom = 496.0
+theme = ExtResource("1_mds3h")
+button_mask = 7
+text = "Сервер 3
+"
+
+[node name="Back" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 528.0
+offset_right = 712.0
+offset_bottom = 616.0
+scale = Vector2(1.00276, 1)
+button_mask = 7
+text = "Назад"
+script = ExtResource("3_41ebc")
+
+[node name="Label" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 24.0
+offset_right = 713.0
+offset_bottom = 112.0
+text = "Список серверов"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="GUI/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="GUI/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="GUI/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="GUI/Back" to="GUI/Back" method="_on_pressed"]

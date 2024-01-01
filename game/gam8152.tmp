@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhauu3kjcwdts"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_74mxj"]
+[ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="1_n6qtk"]
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/bg/1.png" id="2_wtsyd"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n6qtk")
+script = ExtResource("1_74mxj")
+
+[node name="BG" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(2.5, 2.10938)
+texture = ExtResource("2_wtsyd")
+centered = false
+
+[node name="GUI" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.66667, 1.66665)
+
+[node name="Exit" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 48.0
+text = "Выход"
+
+[node name="CardsCont" type="HBoxContainer" parent="GUI"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 256.0
+alignment = 1
+
+[node name="PlayersCont" type="VBoxContainer" parent="GUI"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+offset_left = 864.0
+offset_top = 32.0
+offset_right = 1056.0
+offset_bottom = 616.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="pressed" from="GUI/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

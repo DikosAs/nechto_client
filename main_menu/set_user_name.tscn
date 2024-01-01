@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://e7ylyirxg655"]
+
+[ext_resource type="Script" path="res://main_menu/set_user_name.gd" id="1_02u4p"]
+[ext_resource type="Script" path="res://base_scripts/back_button.gd" id="1_f6m80"]
+[ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="2_i2hkg"]
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/bg/1.png" id="2_nf1r3"]
+
+[node name="SetUserName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02u4p")
+
+[node name="BG" type="Sprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(1.5, 1.26563)
+texture = ExtResource("2_nf1r3")
+centered = false
+
+[node name="GUI" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+theme = ExtResource("2_i2hkg")
+
+[node name="NameInput" type="LineEdit" parent="GUI"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 176.0
+offset_right = 808.0
+offset_bottom = 271.0
+theme = ExtResource("2_i2hkg")
+placeholder_text = "Имя пользователя"
+
+[node name="SetUsername" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 336.0
+offset_right = 712.0
+offset_bottom = 423.0
+theme = ExtResource("2_i2hkg")
+text = "Поменять ник
+"
+
+[node name="Back" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 464.0
+offset_right = 713.0
+offset_bottom = 551.0
+theme = ExtResource("2_i2hkg")
+text = "Назад"
+script = ExtResource("1_f6m80")
+
+[connection signal="pressed" from="GUI/SetUsername" to="." method="_on_set_username_pressed"]
+[connection signal="pressed" from="GUI/Back" to="GUI/Back" method="_on_pressed"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://2lx0lqv2h525"]
+
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_d643c"]
+[ext_resource type="Texture2D" uid="uid://lqu6e6dok4hf" path="res://imgs/animations/update/1.png" id="3_b6olc"]
+[ext_resource type="Texture2D" uid="uid://drg2r3uvgqfq0" path="res://imgs/animations/update/2.png" id="4_hitg3"]
+[ext_resource type="Texture2D" uid="uid://qdtmrdmqwydw" path="res://imgs/animations/update/3.png" id="5_ljp02"]
+[ext_resource type="Texture2D" uid="uid://dm13iiouptevg" path="res://imgs/animations/update/4.png" id="6_53ypp"]
+[ext_resource type="Texture2D" uid="uid://s8t6nyckqcof" path="res://imgs/animations/update/5.png" id="7_v1mff"]
+[ext_resource type="Texture2D" uid="uid://cca5ugj7wkw0v" path="res://imgs/animations/update/6.png" id="8_p0yxe"]
+[ext_resource type="Texture2D" uid="uid://2u8hj4jod14e" path="res://imgs/animations/update/7.png" id="9_18v4k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_auih8"]
+font_size = 24
+outline_size = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wikp3"]
+resource_local_to_scene = true
+resource_name = "MenuLoad"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b6olc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hitg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ljp02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_53ypp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v1mff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p0yxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_18v4k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d643c")
+
+[node name="GUI" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 1145.0
+offset_bottom = 649.0
+
+[node name="PlayName" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 80.0
+offset_right = 712.0
+offset_bottom = 168.0
+text = "НЕЧТО"
+label_settings = SubResource("LabelSettings_auih8")
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 208.0
+offset_right = 712.0
+offset_bottom = 296.0
+text = "Играть"
+
+[node name="Settings" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 336.0
+offset_right = 712.0
+offset_bottom = 424.0
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 464.0
+offset_right = 713.0
+offset_bottom = 551.0
+text = "Выход"
+
+[node name="Login" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 120.0
+text = "Вход"
+
+[node name="Reg" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 192.0
+offset_bottom = 120.0
+text = "Регистрация"
+
+[node name="AccountName" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 192.0
+offset_bottom = 120.0
+
+[node name="Logout" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 120.0
+text = "Выход"
+
+[node name="MenuLoad" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_wikp3")
+frame = 3
+frame_progress = 0.702325
+
+[connection signal="pressed" from="GUI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GUI/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="GUI/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="GUI/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="GUI/Reg" to="." method="_on_reg_pressed"]
