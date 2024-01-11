@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://2lx0lqv2h525"]
+
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_d643c"]
+[ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="2_3scn2"]
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/sprites/bg/1.png" id="3_kma35"]
+[ext_resource type="FontFile" uid="uid://dskyhm6hdyu6m" path="res://data/fonts/BarcadeBrawlRegular.ttf" id="3_snfqt"]
+[ext_resource type="Script" path="res://main_menu/UpdateDB.gd" id="5_2rgi4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_enpnk"]
+font = ExtResource("3_snfqt")
+font_size = 18
+font_color = Color(0.368627, 0.988235, 0.666667, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_3scn2")
+script = ExtResource("1_d643c")
+
+[node name="BG" type="Sprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(1.5, 1.26563)
+texture = ExtResource("3_kma35")
+centered = false
+
+[node name="GUI" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+scale = Vector2(0.99914, 0.998544)
+theme = ExtResource("2_3scn2")
+
+[node name="PlayName" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 80.0
+offset_right = 712.0
+offset_bottom = 168.0
+theme = ExtResource("2_3scn2")
+text = "НЕЧТО"
+label_settings = SubResource("LabelSettings_enpnk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="GUI"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 437.165
+offset_top = 201.913
+offset_right = 716.165
+offset_bottom = 292.913
+theme = ExtResource("2_3scn2")
+text = "Играть"
+
+[node name="Settings" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 437.165
+offset_top = 331.715
+offset_right = 716.165
+offset_bottom = 422.715
+theme = ExtResource("2_3scn2")
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 462.0
+offset_right = 716.0
+offset_bottom = 553.0
+theme = ExtResource("2_3scn2")
+text = "Выход"
+
+[node name="SetUsername" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 77.0
+offset_right = 400.0
+offset_bottom = 116.0
+scale = Vector2(1.02524, 0.978086)
+theme = ExtResource("2_3scn2")
+text = "Изменить
+"
+
+[node name="UserName" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 67.0
+offset_right = 316.0
+offset_bottom = 125.0
+scale = Vector2(1.00294, 1)
+theme = ExtResource("2_3scn2")
+vertical_alignment = 1
+
+[node name="UpdateDB" type="HTTPRequest" parent="."]
+script = ExtResource("5_2rgi4")
+
+[connection signal="pressed" from="GUI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GUI/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="GUI/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="GUI/SetUsername" to="." method="_on_set_username_pressed"]
+[connection signal="request_completed" from="UpdateDB" to="UpdateDB" method="_on_request_completed"]

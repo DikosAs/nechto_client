@@ -1,19 +1,17 @@
-extends "res://base_scripts/menu.gd"
+extends Control
+
+
+var config: Dictionary
 
 
 func _ready() -> void:
-	load_config()
+	config = base_func.load_config()
+	base_func.set_bg_img(get_node('BG'))
 	
-	if config['username'] == '':
+	if str(config['username']).is_empty():
 		get_tree().change_scene_to_file('res://main_menu/set_user_name.tscn')
 	else:
 		$GUI/UserName.text = config['username']
-	
-	set_bg_img(get_node('BG'))
-
-
-func _process(delta) -> void:
-	pass
 
 
 func _on_set_username_pressed() -> void:

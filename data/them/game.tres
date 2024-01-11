@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b1ktcbwssx6qr"]
+
+[ext_resource type="FontFile" uid="uid://bj37slmth16by" path="res://data/fonts/DischargePro.ttf" id="1_rjxpg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p12gr"]
+bg_color = Color(0.227451, 0.180392, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f78cc"]
+bg_color = Color(0.227451, 0.180392, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbftt"]
+bg_color = Color(0.529412, 0.54902, 0.733333, 1)
+
+[resource]
+CardDescription/base_type = &"Label"
+CardDescription/font_sizes/font_size = 18
+CardDescription/fonts/font = ExtResource("1_rjxpg")
+CardName/base_type = &"Label"
+CardName/font_sizes/font_size = 40
+CardName/fonts/font = ExtResource("1_rjxpg")
+ExitButton/base_type = &"Button"
+ExitButton/colors/font_color = Color(0, 0, 0, 1)
+ExitButton/colors/font_focus_color = Color(0.368627, 0.988235, 0.666667, 1)
+ExitButton/colors/font_hover_color = Color(0.368627, 0.988235, 0.666667, 1)
+ExitButton/font_sizes/font_size = 20
+ExitButton/fonts/font = ExtResource("1_rjxpg")
+ExitButton/styles/focus = SubResource("StyleBoxFlat_p12gr")
+ExitButton/styles/hover = SubResource("StyleBoxFlat_f78cc")
+ExitButton/styles/normal = SubResource("StyleBoxFlat_hbftt")
+HeaderMedium/base_type = &"Label"
+HeaderMedium/font_sizes/font_size = 50
+HeaderMedium/fonts/font = ExtResource("1_rjxpg")
+player_from_list/base_type = &"Label"
+player_from_list/font_sizes/font_size = 25
+player_from_list/fonts/font = ExtResource("1_rjxpg")

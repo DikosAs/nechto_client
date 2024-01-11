@@ -10,17 +10,36 @@ config_version=5
 
 [application]
 
-config/name="TestGame"
-run/main_scene="res://main_menu/main_menu.tscn"
+config/name="nechto"
+run/main_scene="res://load_game/load_game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-boot_splash/image="res://data/bg/5.png"
 config/icon="res://icon.svg"
+boot_splash/main_scene="res://load_game/load_game.tscn"
+
+[autoload]
+
+base_func="*res://data/base_scripts/menu.gd"
 
 [display]
 
 window/bg_color=Color(0.14, 0.14, 0.14, 1)
 window/image=""
 window/show_image=true
+
+[file_customization]
+
+folder_colors={
+"res://data/": "green",
+"res://data/base_scripts/": "red",
+"res://game/": "purple",
+"res://game/scripts/": "red",
+"res://game/scripts/resource/": "red",
+"res://game_select_menu/": "purple",
+"res://load_game/": "purple",
+"res://main_menu/": "purple",
+"res://settings_menu/": "purple",
+"res://temp/": "gray"
+}
 
 [rendering]
 

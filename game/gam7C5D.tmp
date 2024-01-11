@@ -1,0 +1,336 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnyiy3gf382vl"]
+
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/sprites/bg/1.png" id="1_icqfr"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_xd66c"]
+[ext_resource type="Texture2D" uid="uid://d4nkwegp0od4n" path="res://data/sprites/cards/nechto.jpg" id="4_emju0"]
+[ext_resource type="Script" path="res://game/scripts/card.gd" id="4_pgll0"]
+[ext_resource type="Texture2D" uid="uid://dj51oy6ud047g" path="res://data/sprites/cards/imgnotfind.svg" id="6_mvfe5"]
+[ext_resource type="FontFile" uid="uid://bj37slmth16by" path="res://data/fonts/DischargePro.ttf" id="6_pkq45"]
+[ext_resource type="Theme" uid="uid://b1ktcbwssx6qr" path="res://data/them/game.tres" id="8_f5r2f"]
+
+[sub_resource type="Theme" id="Theme_eccdi"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("6_pkq45")
+
+[node name="Game2d" type="Node2D"]
+script = ExtResource("1_xd66c")
+metadata/_edit_vertical_guides_ = [192.0, 512.0, 832.0, 1152.0, 1472.0]
+metadata/_edit_horizontal_guides_ = [1088.0, 1088.0, 1088.0, 1088.0, 1088.0]
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.10938)
+texture = ExtResource("1_icqfr")
+centered = false
+
+[node name="Сard1" type="Node2D" parent="."]
+position = Vector2(192, 1088)
+script = ExtResource("4_pgll0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Сard1"]
+texture = ExtResource("6_mvfe5")
+
+[node name="CardSprite_Button" type="TouchScreenButton" parent="Сard1"]
+position = Vector2(-128, -184)
+scale = Vector2(0.266667, 0.2875)
+texture_normal = ExtResource("4_emju0")
+
+[node name="Name" type="Label" parent="Сard1"]
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = -128.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardName"
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Сard1"]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 183.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardDescription"
+text = "Description
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Сard1"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eccdi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Сard2" type="Node2D" parent="."]
+position = Vector2(512, 1088)
+script = ExtResource("4_pgll0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Сard2"]
+texture = ExtResource("6_mvfe5")
+
+[node name="CardSprite_Button" type="TouchScreenButton" parent="Сard2"]
+position = Vector2(-128, -184)
+scale = Vector2(0.266667, 0.2875)
+texture_normal = ExtResource("4_emju0")
+
+[node name="Name" type="Label" parent="Сard2"]
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = -128.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardName"
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Сard2"]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 183.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardDescription"
+text = "Description
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Сard2"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eccdi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Сard3" type="Node2D" parent="."]
+position = Vector2(832, 1088)
+script = ExtResource("4_pgll0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Сard3"]
+texture = ExtResource("6_mvfe5")
+
+[node name="CardSprite_Button" type="TouchScreenButton" parent="Сard3"]
+position = Vector2(-128, -184)
+scale = Vector2(0.266667, 0.2875)
+texture_normal = ExtResource("4_emju0")
+
+[node name="Name" type="Label" parent="Сard3"]
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = -128.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardName"
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Сard3"]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 183.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardDescription"
+text = "Description
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Сard3"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eccdi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Сard4" type="Node2D" parent="."]
+position = Vector2(1152, 1088)
+script = ExtResource("4_pgll0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Сard4"]
+texture = ExtResource("6_mvfe5")
+
+[node name="CardSprite_Button" type="TouchScreenButton" parent="Сard4"]
+position = Vector2(-128, -184)
+scale = Vector2(0.266667, 0.2875)
+texture_normal = ExtResource("4_emju0")
+
+[node name="Name" type="Label" parent="Сard4"]
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = -128.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardName"
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Сard4"]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 183.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardDescription"
+text = "Description
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Сard4"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eccdi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Сard5" type="Node2D" parent="."]
+position = Vector2(1472, 1088)
+script = ExtResource("4_pgll0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Сard5"]
+texture = ExtResource("6_mvfe5")
+
+[node name="CardSprite_Button" type="TouchScreenButton" parent="Сard5"]
+position = Vector2(-128, -184)
+scale = Vector2(0.266667, 0.2875)
+texture_normal = ExtResource("4_emju0")
+
+[node name="Name" type="Label" parent="Сard5"]
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = -128.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardName"
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Сard5"]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 183.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"CardDescription"
+text = "Description
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Сard5"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eccdi")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 48.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"ExitButton"
+text = "Выход"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 1504.0
+offset_top = 32.0
+offset_right = 1824.0
+offset_bottom = 96.0
+theme = ExtResource("8_f5r2f")
+theme_type_variation = &"HeaderMedium"
+text = "Игроки"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1504.0
+offset_top = 96.0
+offset_right = 1824.0
+offset_bottom = 832.0
+
+[connection signal="mouse_entered" from="Сard1/Control" to="Сard1" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Сard1/Control" to="Сard1" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Сard2/Control" to="Сard2" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Сard2/Control" to="Сard2" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Сard3/Control" to="Сard3" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Сard3/Control" to="Сard3" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Сard4/Control" to="Сard4" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Сard4/Control" to="Сard4" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Сard5/Control" to="Сard5" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Сard5/Control" to="Сard5" method="_on_control_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

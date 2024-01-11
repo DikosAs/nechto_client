@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_d643c"]
 [ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="2_3scn2"]
-[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/bg/1.png" id="3_kma35"]
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/sprites/bg/1.png" id="3_kma35"]
 [ext_resource type="FontFile" uid="uid://dskyhm6hdyu6m" path="res://data/fonts/BarcadeBrawlRegular.ttf" id="3_snfqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_enpnk"]

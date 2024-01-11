@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnyiy3gf382vl"]
+
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/sprites/bg/1.png" id="1_icqfr"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_xd66c"]
+[ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="3_6h3ik"]
+[ext_resource type="Texture2D" uid="uid://d4nkwegp0od4n" path="res://data/sprites/cards/nechto.jpg" id="4_emju0"]
+[ext_resource type="Script" path="res://game/scripts/card.gd" id="4_pgll0"]
+[ext_resource type="Theme" uid="uid://crwufk0ytsasb" path="res://data/them/card.tres" id="5_7occo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gs2jr"]
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_w06oi"]
+font_size = 12
+
+[node name="Game2d" type="Node2D"]
+script = ExtResource("1_xd66c")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.10938)
+texture = ExtResource("1_icqfr")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 48.0
+theme = ExtResource("3_6h3ik")
+text = "Выход"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 1504.0
+offset_top = 32.0
+offset_right = 1824.0
+offset_bottom = 96.0
+text = "Игроки"
+label_settings = SubResource("LabelSettings_gs2jr")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Сard1" type="Node2D" parent="."]
+position = Vector2(320, 1088)
+script = ExtResource("4_pgll0")
+
+[node name="CardSprite_Button" type="TouchScreenButton" parent="Сard1"]
+position = Vector2(-128, -184)
+scale = Vector2(0.266667, 0.2875)
+texture_normal = ExtResource("4_emju0")
+texture_pressed = ExtResource("4_emju0")
+
+[node name="Name" type="Label" parent="Сard1"]
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = -128.0
+theme = ExtResource("5_7occo")
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="Сard1"]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 183.0
+theme = ExtResource("5_7occo")
+text = "Description
+"
+label_settings = SubResource("LabelSettings_w06oi")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Сard1"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -184.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_7occo")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

@@ -1,1 +1,1 @@
-{ "serverURL": "127.0.0.1:5338", "username": "Marsh_Meg" }
+{ "serverURL": "127.0.0.1:5338", "username": "Marsh_Meg", "path_to_card_sprites": "res://data/sprites/cards/" }

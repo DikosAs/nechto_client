@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnyiy3gf382vl"]
+
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/sprites/bg/1.png" id="1_icqfr"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_xd66c"]
+[ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="3_6h3ik"]
+[ext_resource type="Script" path="res://game/scripts/CardsContainer.gd" id="4_6pbom"]
+
+[node name="Game2d" type="Node2D"]
+script = ExtResource("1_xd66c")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.10938)
+texture = ExtResource("1_icqfr")
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.573
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 48.0
+theme = ExtResource("3_6h3ik")
+text = "Выход"
+
+[node name="Cards" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 168.0
+offset_top = 704.0
+offset_right = 1432.0
+offset_bottom = 1216.0
+
+[node name="Container" type="Container" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_6pbom")
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://e7ylyirxg655"]
 
 [ext_resource type="Script" path="res://main_menu/set_user_name.gd" id="1_02u4p"]
-[ext_resource type="Script" path="res://base_scripts/back_button.gd" id="1_f6m80"]
+[ext_resource type="Script" path="res://data/base_scripts/back_button.gd" id="1_f6m80"]
 [ext_resource type="Theme" uid="uid://dp4lmh0jtn0ll" path="res://data/them/main.tres" id="2_i2hkg"]
-[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/bg/1.png" id="2_nf1r3"]
+[ext_resource type="Texture2D" uid="uid://18h5k0eo1iws" path="res://data/sprites/bg/1.png" id="2_nf1r3"]
 
 [node name="SetUserName" type="Control"]
 layout_mode = 3
@@ -33,7 +33,7 @@ offset_top = 176.0
 offset_right = 808.0
 offset_bottom = 271.0
 theme = ExtResource("2_i2hkg")
-placeholder_text = "Имя пользователя"
+placeholder_text = "  Имя пользователя"
 
 [node name="SetUsername" type="Button" parent="GUI"]
 layout_mode = 0

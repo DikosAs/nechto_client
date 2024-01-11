@@ -1,22 +1,20 @@
-extends "res://base_scripts/menu.gd"
+extends Control
 
 
-# Called when the node enters the scene tree for the first time.
+var config: Dictionary
+
+
 func _ready() -> void:
-	load_config()
-	set_bg_img(get_node('BG'))
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
-	pass
+	config = base_func.load_config()
+	base_func.set_bg_img(get_node('BG'))
 
 
 func _on_set_username_pressed() -> void:
-	config['username'] = str($GUI/NameInput.text).replace(' ', '_')
-	if config['username'] == '':
+	if str(config['username']).is_empty() or str(config['username']).replace(' ', '').is_empty():
 		config['username'] == 'user'
-	wright_json_data(
+	else:
+		config['username'] = str($GUI/NameInput.text).replace(' ', '_')
+	base_func.wright_json_data(
 		'res://data/configs.json',
 		config
 	)

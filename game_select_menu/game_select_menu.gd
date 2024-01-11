@@ -1,8 +1,13 @@
-extends "res://base_scripts/menu.gd"
+extends Control
+
+
+var config: Dictionary
 
 
 func _ready() -> void:
-	load_config()
+	config = base_func.load_config()
+	base_func.set_bg_img(get_node('BG'))
+	
 	var http_request: HTTPRequest = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_completed)
@@ -11,7 +16,6 @@ func _ready() -> void:
 	if error != OK:
 		push_error("Ошибка запроса")
 	
-	set_bg_img(get_node('BG'))
 
 
 func _http_request_completed(result, response_code, headers, body) -> void:
@@ -19,31 +23,28 @@ func _http_request_completed(result, response_code, headers, body) -> void:
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	
-	for gameID in response:
-		var button: Node = get_node('GUI/%s' % gameID)
-		button.visible = true
-
-
-func _process(delta) -> void:
-	pass
+	if response != null:
+		for gameID in response:
+			var button: Node = get_node('GUI/%s' % gameID)
+			button.visible = true
 
 
 func _on_1_pressed() -> void:
-	wright_json_data('res://temp/game_params.json', {
+	base_func.wright_json_data('res://temp/game_params.json', {
 		"gameID": 1,
 	})
-	get_tree().change_scene_to_file('res://game/game.tscn')
+	get_tree().change_scene_to_file('res://game/game2D.tscn')
 
 
 func _on_2_pressed() -> void:
-	wright_json_data('res://temp/game_params.json', {
+	base_func.wright_json_data('res://temp/game_params.json', {
 		"gameID": 2,
 	})
-	get_tree().change_scene_to_file('res://game/game.tscn')
+	get_tree().change_scene_to_file('res://game/game2D.tscn')
 
 
 func _on_3_pressed() -> void:
-	wright_json_data('res://temp/game_params.json', {
+	base_func.wright_json_data('res://temp/game_params.json', {
 		"gameID": 3,
 	})
-	get_tree().change_scene_to_file('res://game/game.tscn')
+	get_tree().change_scene_to_file('res://game/game2D.tscn')
