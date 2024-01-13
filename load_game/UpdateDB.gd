@@ -30,8 +30,6 @@ func _on_cards_request_completed(result, response_code, headers, body) -> void:
 				'description': card_data['description'],
 				'function': card_data['function'],
 				'image': card_data['image'],
-				'minPlayerInGame': card_data['minPlayerInGame'],
-				'maxCardInColoda': card_data['maxCardInColoda']
 			}
 		
 		base_func.wright_json_data('res://temp/cards_data.json', cards)
@@ -43,10 +41,6 @@ func _on_cards_request_completed(result, response_code, headers, body) -> void:
 				add_child(img_http)
 				img_http.request_completed.connect(_on_card_sprite_request_completed)
 				img_http.request("http://%s%s" % [config['serverURL'], cards[card]['image']])
-		var sheet = ExcelFile.open_file("res://temp/cards.xlsx").get_workbook().get_sheet(0)
-		var table_data = sheet.get_table_data()
-		print(JSON.stringify(table_data, "\t"))
-		
 
 
 func _on_card_sprite_request_completed(result, response_code, headers, body) -> void:

@@ -5,7 +5,6 @@ var cards_data: Dictionary
 @onready var room_data: Dictionary = base_func.read_json_file('res://temp/game_params.json')
 @onready var config: Dictionary = base_func.load_config()
 @onready var cards_objs: Array[Node2D] = [$Card1, $Card2, $Card3, $Card4, $Card5]
-#var excelFile = ExcelFile.open_file("")
 var cards_status_for_use := false
 var cards_status_for_trade := false 
 
@@ -109,16 +108,20 @@ func _process(delta) -> void:
 					_cards(data['cards'])
 				if data['players'] != null:
 					_players(data['players'])
-					print(data['players'])
 					if data['players']['1'] == config['username']:
 						cards_status_for_use = true
 
 
 func _on_card_card_is_pressed(cardID) -> void: 
-	var card = cards_objs[cardID]
 	if cards_status_for_use: 
-		if card: 
+		# получаю базовые данные о карте
+		var card = cards_objs[cardID]
+		var card_function = cards_data[str(card['card_num'])]['function']
+		
+		if "@range" in card_function:
 			pass
+		
+		
 		var data: Dictionary = {
 			"func": "step",
 			"cardID": card.card_num

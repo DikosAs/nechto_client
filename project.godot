@@ -29,6 +29,7 @@ window/show_image=true
 [file_customization]
 
 folder_colors={
+"res://account/": "purple",
 "res://data/": "green",
 "res://data/base_scripts/": "red",
 "res://game/": "purple",

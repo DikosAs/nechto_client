@@ -18,7 +18,6 @@ script = ExtResource("1_6xtnm")
 
 [node name="CardSprite_Button" type="TouchScreenButton" parent="."]
 position = Vector2(-128, -184)
-scale = Vector2(1, 1)
 texture_normal = ExtResource("2_e2ik7")
 shape = SubResource("RectangleShape2D_hjye5")
 
