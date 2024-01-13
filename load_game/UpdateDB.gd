@@ -1,6 +1,5 @@
 extends HTTPRequest
 
-#const SQL = preload()
 
 var config: Dictionary
 var img_name: String
@@ -23,7 +22,6 @@ func _on_cards_request_completed(result, response_code, headers, body) -> void:
 		json.parse(body.get_string_from_utf8())
 		var response: Dictionary = json.get_data()
 		
-		var CARDS: Dictionary
 		var cards: Dictionary
 		for card in response['cards']:
 			var card_data = response['cards'][card]
@@ -35,14 +33,6 @@ func _on_cards_request_completed(result, response_code, headers, body) -> void:
 				'minPlayerInGame': card_data['minPlayerInGame'],
 				'maxCardInColoda': card_data['maxCardInColoda']
 			}
-			CARDS[card] = Card.new(
-				card_data['name'],
-				card_data['description'],
-				card_data['image']
-			)
-			
-			
-		
 		
 		base_func.wright_json_data('res://temp/cards_data.json', cards)
 		for card in cards:
@@ -53,6 +43,10 @@ func _on_cards_request_completed(result, response_code, headers, body) -> void:
 				add_child(img_http)
 				img_http.request_completed.connect(_on_card_sprite_request_completed)
 				img_http.request("http://%s%s" % [config['serverURL'], cards[card]['image']])
+		var sheet = ExcelFile.open_file("res://temp/cards.xlsx").get_workbook().get_sheet(0)
+		var table_data = sheet.get_table_data()
+		print(JSON.stringify(table_data, "\t"))
+		
 
 
 func _on_card_sprite_request_completed(result, response_code, headers, body) -> void:

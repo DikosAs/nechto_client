@@ -1,10 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://dv56dvw112te8"]
 
 [ext_resource type="Script" path="res://game/scripts/card.gd" id="1_6xtnm"]
-[ext_resource type="Texture2D" uid="uid://d4nkwegp0od4n" path="res://data/sprites/cards/nechto.jpg" id="1_xvk8b"]
 [ext_resource type="Texture2D" uid="uid://dj51oy6ud047g" path="res://data/sprites/cards/imgnotfind.svg" id="2_e2ik7"]
 [ext_resource type="Theme" uid="uid://b1ktcbwssx6qr" path="res://data/them/game.tres" id="4_8hexg"]
 [ext_resource type="FontFile" uid="uid://bj37slmth16by" path="res://data/fonts/DischargePro.ttf" id="5_kh32j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjye5"]
+size = Vector2(256, 368)
 
 [sub_resource type="Theme" id="Theme_u4k4d"]
 Label/colors/font_color = Color(1, 1, 1, 1)
@@ -14,13 +16,11 @@ Label/fonts/font = ExtResource("5_kh32j")
 [node name="Card" type="Node2D"]
 script = ExtResource("1_6xtnm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_e2ik7")
-
 [node name="CardSprite_Button" type="TouchScreenButton" parent="."]
 position = Vector2(-128, -184)
-scale = Vector2(0.266667, 0.2875)
-texture_normal = ExtResource("1_xvk8b")
+scale = Vector2(1, 1)
+texture_normal = ExtResource("2_e2ik7")
+shape = SubResource("RectangleShape2D_hjye5")
 
 [node name="Name" type="Label" parent="."]
 offset_left = -128.0
@@ -63,3 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_u4k4d")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CardSprite_Button" to="." method="_on_card_sprite_button_pressed"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
